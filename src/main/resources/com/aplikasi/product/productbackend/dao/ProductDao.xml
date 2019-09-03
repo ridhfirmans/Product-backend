@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.aplikasi.product.productbackend.dao.ProductDao">
+
+	<resultMap id="productResult" type="com.aplikasi.product.productbackend.model.Product">
+		<id property="id" column="id"/>
+		<result property="namaProduct" column="nama_product"/>
+		<result property="harga" column="harga"/>
+		<result property="stok" column="stok"/>
+		<result property="minimumStok" column="minimum_stok"/>
+	</resultMap>
+
+	 <select id="getAllProducts" resultMap="productResult">
+        select id, nama_product, harga, stok, minimum_stok from product
+    </select>
+    
+    <insert id="save" parameterType="com.aplikasi.product.productbackend.model.Product">
+    	insert into product (id, nama_product, harga, stok, minimum_stok) 
+    	values (#{id}, #{namaProduct}, #{harga}, #{stok}, #{minimumStok})
+    </insert>
+
+</mapper>

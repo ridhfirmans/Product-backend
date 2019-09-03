@@ -35,5 +35,5 @@ public class ProductApiController {
 	public void simpan(@RequestBody @Valid Product prod){
 		prodService.save(prod);
 	}
-	
+	//another mapping
 }
